@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">smartupdate</string>
+    <string name="cancel">取消</string>
+    <string name="setting">设置</string>
+    <string name="prompt_we_need_storage">我们需要您提供相关权限以使我们能够更好的为您服务.</string>
+    <string name="prompt_request_storage">我们即将请求存储相关的权限.是否前往请求?</string>
+
+</resources>
