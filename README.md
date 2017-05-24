@@ -11,7 +11,7 @@
 如下图所示(再次为我的艺术细胞所震撼)： 
 ![](https://dn-lengyue.qbox.me/image/2/38/5147c03fcd52bd67c5bad0970062c.png)
 
-现在的问题在于如何生成差分包以及合并差分包。这里，我们借助开源库[bsdiff](http://www.pokorra.de/coding/bsdiff.html)来解决以上两个问题。首先我们先演示一下差分包的形成与合并。
+现在的问题在于如何生成差分包以及合并差分包。这里，我们借助开源库[bsdiff](http://www.daemonology.net/bsdiff/)来解决以上两个问题。首先我们先演示一下差分包的形成与合并。
 我们先打出一个安装包，假设为old.apk。对源码做修改后，再打出一个新的安装包new.apk。此处old.apk相当于老版本的应用，而new.apk相当于新版本的应用。接下来，我们利用bsdiff来生成差分包patch.patch。
 
 ## 生成差分包
@@ -28,7 +28,7 @@
 我们可以安装测试APP是否正常。
 
 ## 让自己的APP支持增量更新
-客户端支持增量更新总体和上面的演示差不多，唯一的区别在于客户端要自行编译bspatch.c来实现合并差分包，也就是所谓的ndk开发，这里我们首先要下载[bsdiff](http://www.pokorra.de/coding/bsdiff.html)的源码以及[bszip](http://www.bzip.org/downloads.html)的源码。  
+客户端支持增量更新总体和上面的演示差不多，唯一的区别在于客户端要自行编译bspatch.c来实现合并差分包，也就是所谓的ndk开发，这里我们首先要下载[bsdiff](http://www.daemonology.net/bsdiff/)的源码以及[bszip](http://www.bzip.org/downloads.html)的源码。  
 将bzip中除了.c .h 外的文件全部删除，将整个文件夹复制到AS的JNI目录，同时将bsdiff的源码复制到JNI目录，将bsdiff的代码打开将main方法改成`updatePatch`
 目录结构应该是这样的：
 ![](https://dn-lengyue.qbox.me/image/2/b1/27b2742aa5b03de5f4366f44c4f38.png)
